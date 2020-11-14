@@ -1,6 +1,7 @@
 // Copyright 2018 Nesterov Alexander
 #include "../../../modules/task_2/frolova_o_bcast/bcast.h"
 #include <mpi.h>
+#include <iostream>
 #include <vector>
 #include <string>
 #include <random>
