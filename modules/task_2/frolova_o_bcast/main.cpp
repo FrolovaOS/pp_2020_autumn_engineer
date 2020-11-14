@@ -52,7 +52,7 @@ TEST(Parallel_Operations_MPI, TEST_Get_Sum1) {
 
 TEST(Parallel_Operations_MPI, TEST_Get_Sum2) {
     int rank, sum1, sum2;
-    int root = 1;
+    int root = 0;
     MPI_Comm_rank(MPI_COMM_WORLD, &rank);
     std::vector<int> array;
     if (rank == root) array = getRandomArray(11);
@@ -68,7 +68,7 @@ TEST(Parallel_Operations_MPI, TEST_Get_Sum2) {
 
 TEST(Parallel_Operations_MPI, TEST_Get_Sum3) {
     int rank, sum1, sum2;
-    int root = 2;
+    int root = 0;
     MPI_Comm_rank(MPI_COMM_WORLD, &rank);
     std::vector<int> array;
     if (rank == root) array = getRandomArray(8);
