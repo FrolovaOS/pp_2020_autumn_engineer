@@ -1,7 +1,6 @@
 // Copyright 2018 Nesterov Alexander
 #include <gtest-mpi-listener.hpp>
 #include <gtest/gtest.h>
-#include <iostream>
 #include <vector>
 #include "./bcast.h"
 
