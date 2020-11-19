@@ -62,7 +62,7 @@ TEST(Parallel_Operations_MPI, TEST_Check_checkFloatSum) {
 
 TEST(Parallel_Operations_MPI, TEST_Get_Int_Sum) {
     int rank, sum1, sum2;
-    int root = 1;
+    int root = 0;
     MPI_Comm_rank(MPI_COMM_WORLD, &rank);
     std::vector<int> array;
     if (rank == root) array = getRandomArray(5);
@@ -78,7 +78,7 @@ TEST(Parallel_Operations_MPI, TEST_Get_Int_Sum) {
 TEST(Parallel_Operations_MPI, TEST_Get_Float_Sum) {
     int rank;
     float sum1, sum2;
-    int root = 1;
+    int root = 0;
     MPI_Comm_rank(MPI_COMM_WORLD, &rank);
     std::vector<float> array;
     if (rank == root) array = getRandomFloatArray(7);
@@ -94,7 +94,7 @@ TEST(Parallel_Operations_MPI, TEST_Get_Float_Sum) {
 TEST(Parallel_Operations_MPI, TEST_Get_Double_Sum) {
     int rank;
     double sum1, sum2;
-    int root = 1;
+    int root = 0;
     MPI_Comm_rank(MPI_COMM_WORLD, &rank);
     std::vector<double> array;
     if (rank == root) array = getRandomDoubleArray(9);
@@ -112,12 +112,12 @@ TEST(Parallel_Operations_MPI, TEST_Get_Sum2) {
     int root = 0;
     MPI_Comm_rank(MPI_COMM_WORLD, &rank);
     std::vector<int> array;
-    if (rank == root) array = getRandomArray(11);
+    if (rank == root) array = getRandomArray(111);
     MPI_Barrier(MPI_COMM_WORLD);
-    getSum(array, 11, &sum1, root);
+    getSum(array, 111, &sum1, root);
     MPI_Barrier(MPI_COMM_WORLD);
     if (rank == root) {
-       sum2 = checkSum(array, 11);
+       sum2 = checkSum(array, 111);
        EXPECT_EQ(sum1, sum2);
     }
 }
@@ -127,12 +127,12 @@ TEST(Parallel_Operations_MPI, TEST_Get_Sum3) {
     int root = 0;
     MPI_Comm_rank(MPI_COMM_WORLD, &rank);
     std::vector<int> array;
-    if (rank == root) array = getRandomArray(10);
+    if (rank == root) array = getRandomArray(100);
     MPI_Barrier(MPI_COMM_WORLD);
-    getSum(array, 10, &sum1, root);
+    getSum(array, 100, &sum1, root);
     MPI_Barrier(MPI_COMM_WORLD);
     if (rank == root) {
-       sum2 = checkSum(array, 10);
+       sum2 = checkSum(array, 100);
        EXPECT_EQ(sum1, sum2);
     }
 }
