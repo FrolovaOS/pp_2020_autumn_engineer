@@ -112,12 +112,12 @@ TEST(Parallel_Operations_MPI, TEST_Get_Sum2) {
     int root = 0;
     MPI_Comm_rank(MPI_COMM_WORLD, &rank);
     std::vector<int> array;
-    if (rank == root) array = getRandomArray(111);
+    if (rank == root) array = getRandomArray(55);
     MPI_Barrier(MPI_COMM_WORLD);
-    getSum(array, 111, &sum1, root);
+    getSum(array, 55, &sum1, root);
     MPI_Barrier(MPI_COMM_WORLD);
     if (rank == root) {
-       sum2 = checkSum(array, 111);
+       sum2 = checkSum(array, 55);
        EXPECT_EQ(sum1, sum2);
     }
 }
@@ -127,12 +127,12 @@ TEST(Parallel_Operations_MPI, TEST_Get_Sum3) {
     int root = 0;
     MPI_Comm_rank(MPI_COMM_WORLD, &rank);
     std::vector<int> array;
-    if (rank == root) array = getRandomArray(100);
+    if (rank == root) array = getRandomArray(50);
     MPI_Barrier(MPI_COMM_WORLD);
-    getSum(array, 100, &sum1, root);
+    getSum(array, 50, &sum1, root);
     MPI_Barrier(MPI_COMM_WORLD);
     if (rank == root) {
-       sum2 = checkSum(array, 100);
+       sum2 = checkSum(array, 50);
        EXPECT_EQ(sum1, sum2);
     }
 }
@@ -140,7 +140,7 @@ TEST(Parallel_Operations_MPI, TEST_Get_Sum3) {
 int main(int argc, char** argv) {
     ::testing::InitGoogleTest(&argc, argv);
     MPI_Init(&argc, &argv);
-    difOfTime(100, 0);
+    difOfTime(10, 0);
     ::testing::AddGlobalTestEnvironment(new GTestMPIListener::MPIEnvironment);
     ::testing::TestEventListeners& listeners =
         ::testing::UnitTest::GetInstance()->listeners();
