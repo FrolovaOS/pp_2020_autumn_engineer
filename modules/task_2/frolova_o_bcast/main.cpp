@@ -127,12 +127,12 @@ TEST(Parallel_Operations_MPI, TEST_Get_Sum3) {
     int root = 0;
     MPI_Comm_rank(MPI_COMM_WORLD, &rank);
     std::vector<int> array;
-    if (rank == root) array = getRandomArray(8);
+    if (rank == root) array = getRandomArray(10);
     MPI_Barrier(MPI_COMM_WORLD);
-    getSum(array, 8, &sum1, root);
+    getSum(array, 10, &sum1, root);
     MPI_Barrier(MPI_COMM_WORLD);
     if (rank == root) {
-       sum2 = checkSum(array, 8);
+       sum2 = checkSum(array, 10);
        EXPECT_EQ(sum1, sum2);
     }
 }
