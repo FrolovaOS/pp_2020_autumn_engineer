@@ -9,7 +9,7 @@ TEST(Parallel_Operations_MPI, Test_Negative_Size) {
   int rank;
   MPI_Comm_rank(MPI_COMM_WORLD, &rank);
   std::vector<int> vec;
-  const int size = -1;
+  const int size = -666;
   if (rank == 0) {
   ASSERT_ANY_THROW(getRandomVector(size));
   }
